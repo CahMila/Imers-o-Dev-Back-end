@@ -11,3 +11,12 @@ export async function getTodosPosts() {
     // Encontra todos os documentos na coleção e os converte para um array
     return colecao.find().toArray();
 }
+
+export async function criarPost(novoPost) {
+    // Conecta ao banco de dados 'imersao-instabytes'
+    const db = conexao.db("imersao-instabytes");
+    // Seleciona a coleção 'posts'dentro do banco de dados
+    const colecao = db.collection("posts");
+    // Encontra todos os documentos na coleção e os converte para um array
+    return colecao.insertOne(novoPost)
+}
